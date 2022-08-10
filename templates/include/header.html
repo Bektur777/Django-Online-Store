@@ -1,0 +1,12 @@
+{% load static %}
+<header class="header" id="header">
+    <nav class="nav">
+        <p class="logo">Cellular Shop</p>
+        <ul class="menu">
+            <li><a href="{% url 'store_view' %}">Главная</a></li>
+            <li><a href="">Войти</a></li>
+            <li><a href="">Регистрация</a></li>
+            <li><a href=""><img src="{% static 'img/basket.svg' %}" alt="basket"></a></li>
+        </ul>
+    </nav>
+</header>

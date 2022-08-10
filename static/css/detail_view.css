@@ -1,0 +1,281 @@
+body {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 1240px;
+    margin: 0 auto;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Шапка */
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu li a {
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.menu li {
+    display: block;
+    margin-left: 50px;
+}
+
+.header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+    height: 90px;
+    align-items: center;
+    margin-bottom: 44px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    width: 1240px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+}
+
+/* Поиск */
+
+.search-form {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 30px;
+}
+
+.input {
+    box-sizing: border-box;
+    width: 207px;
+    height: 60px;
+    border: 1px solid #DDDDDD;
+    padding-left: 20px;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 155%;
+    color: #B0B0B0;
+}
+
+.btn {
+    cursor: pointer;
+    width: 73px;
+    height: 60px;
+    background: #000000;
+}
+
+/* Фильтр поиска */
+
+.filter-title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.filter-wrapper {
+    justify-content: flex-start;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.checkbox {
+    width: 15px;
+    height: 15px;
+    border: 0.5px solid #000000;
+    margin-right: 20px;
+}
+
+.checkbox-title {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 20px;
+    color: #000000;
+}
+
+.filter-search {
+    margin-top: 23px;
+    width: 120px;
+    height: 30px;
+    border: 1px solid #000000;
+    background-color: #fff;
+    border-radius: 4px;
+
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 157.5%;
+    cursor: pointer;
+}
+
+.aside {
+    margin-bottom: 100px;
+}
+
+/* Товар */
+
+.product-view {
+    margin-left: 70px;
+}
+
+.product-title {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+
+.product-img {
+    width: auto;
+    height: 350px;
+}
+
+.dots-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.dot {
+    width: 17px;
+    height: 17px;
+    background: #8F8F8F;
+    border-radius: 41px;
+    margin: 30px 9px;
+}
+
+.dot-deactive {
+    opacity: 50%;
+}
+
+.basket-btn {
+    width: 220px;
+    height: 60px;
+    background: #fff;
+    border: 1px solid #000000;
+    border-radius: 14px;
+
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 157.5%;
+    cursor: pointer;
+
+    margin: 24px 0px;
+}
+
+.product-feature {
+    margin-left: 100px;
+}
+
+.feature-title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 5px;
+}
+
+.feature-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 25px;
+}
+
+/* Описание */
+
+.description {
+    margin-top: 40px;
+    margin-bottom: 70px;
+}
+
+.description-title {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+
+.description-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+}
+
+.text-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+/* Футер */
+
+.footer {
+    height: 400px;
+    background: #000;
+}
+
+.footer-wrapper {
+    align-items: center;
+    padding-top: 93px;
+}
+
+.footer-title {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 37px;
+    color: #D0D0D0;
+}
+
+.simple-pages {
+    display: flex;
+    flex-direction: column;
+}
+
+.simple-pages ul li a {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #D0D0D0;
+    text-decoration: none;
+}
+
+.simple-pages ul li {
+    margin-bottom: 30px;
+}

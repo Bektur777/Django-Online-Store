@@ -1,0 +1,48 @@
+<div class="aside">
+    <h2 class="search-title">
+        Поиск предмета
+    </h2>
+    <form action="{% url 'search' %}" class="search-form" method="get">
+        <input type="text" placeholder="Введите название..." class="input" name="search" required>
+        <button type="submit" class="btn" for="search">Поиск</button>
+    </form>
+    <form action="{% url 'filter' %}" method="get">
+        <div class="filter">
+            <h2 class="filter-title">Категория</h2>
+            {% for category in view.get_category %}
+                <div class="wrapper filter-wrapper">
+                    <input type="checkbox" class="checkbox" name="category" value="{{ category.id }}">
+                    <h3 class="checkbox-title">{{ category.name }}</h3>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="filter">
+            <h2 class="filter-title">Производитель</h2>
+            {% for manufacture in view.get_manufacture %}
+                <div class="wrapper filter-wrapper">
+                    <input type="checkbox" class="checkbox" name="manufacture" value="{{ manufacture.id }}">
+                    <h3 class="checkbox-title">{{ manufacture.name }}</h3>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="filter">
+            <h2 class="filter-title">Память</h2>
+            {% for memory in view.get_memory %}
+                <div class="wrapper filter-wrapper">
+                    <input type="checkbox" class="checkbox" name="memory" value="{{ memory.id }}">
+                    <h3 class="checkbox-title">{{ memory.name }}</h3>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="filter">
+            <h2 class="filter-title">Год выпуска</h2>
+            {% for get_year in view.get_years %}
+                <div class="wrapper filter-wrapper">
+                    <input type="checkbox" class="checkbox" name="year" value="{{ get_year.year }}">
+                    <h3 class="checkbox-title">{{ get_year.year }}</h3>
+                </div>
+            {% endfor %}
+        </div>
+        <button type="submit" for="checkbox" class="filter-search">Найти</button>
+    </form>
+</div>

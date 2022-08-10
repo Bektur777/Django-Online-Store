@@ -1,0 +1,32 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block title %}
+    Products
+{% endblock %}
+{% block style %}
+    href="{% static 'css/list_view.css' %}"
+{% endblock %}
+<main>
+    {% block content %}
+        <div class="products">
+            <div class="products-wrapper">
+                {% for product in product_list %}
+                    <div class="product-block">
+                        <div class="product-img-block">
+                            <img src="{{ product.poster.url }}" alt="iphone" class="product-img">
+                        </div>
+                        <div class="product-cart">
+                            <a href="{{ product.get_absolute_url }}" class="a-title">
+                                <p class="product-title">{{ product.title }}</p>
+                            </a>
+                            <p class="product-text">{{ product.price }} сом</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <ul class="pagination-block">
+                {% include 'include/pagination.html' %}
+            </ul>
+        </div>
+    {% endblock %}
+</main>

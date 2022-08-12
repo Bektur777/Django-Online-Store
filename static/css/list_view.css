@@ -23,48 +23,6 @@ html {
     justify-content: space-between;
 }
 
-/* Шапка */
-
-.menu {
-    display: flex;
-    align-items: center;
-}
-
-.menu li a {
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.menu li {
-    display: block;
-    margin-left: 50px;
-}
-
-.header {
-    display: flex;
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    background: #FFFFFF;
-    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
-    height: 90px;
-    align-items: center;
-    margin-bottom: 44px;
-}
-
-.nav {
-    display: flex;
-    justify-content: space-between;
-    width: 1240px;
-    margin: 0 auto;
-}
-
-.logo {
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 34px;
-}
-
 /* Поиск */
 
 .search-form {
@@ -239,40 +197,4 @@ html {
 
 .aside {
     margin-bottom: 100px;
-}
-
-/* Футер */
-
-.footer {
-    height: 400px;
-    background: #000;
-}
-
-.footer-wrapper {
-    align-items: center;
-    padding-top: 93px;
-}
-
-.footer-title {
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 37px;
-    color: #D0D0D0;
-}
-
-.simple-pages {
-    display: flex;
-    flex-direction: column;
-}
-
-.simple-pages ul li a {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-    color: #D0D0D0;
-    text-decoration: none;
-}
-
-.simple-pages ul li {
-    margin-bottom: 30px;
 }

@@ -1,6 +1,11 @@
+from django.contrib.auth import logout, login
+from django.contrib.auth.views import LoginView
 from django.db.models import Q
-from django.views.generic import ListView, DetailView
+from django.shortcuts import redirect
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView
 
+from .forms import RegisterUserForm, LoginUserForm
 from .models import *
 
 
@@ -73,3 +78,25 @@ class FilterProductView(ProductFilter, ListView):
         return context
 
 
+class RegisterUser(CreateView):
+    form_class = RegisterUserForm
+    template_name = 'store/register.html'
+    success_url = reverse_lazy('login')
+
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect('store_view')
+
+
+class LoginUser(LoginView):
+    form_class = LoginUserForm
+    template_name = 'store/login.html'
+
+    def get_success_url(self):
+        return reverse_lazy('product_view')
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('store_view')

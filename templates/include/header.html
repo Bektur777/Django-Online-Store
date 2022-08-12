@@ -1,11 +1,25 @@
 {% load static %}
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" {% block style %}{% endblock %}>
+<link rel="stylesheet" href="{% static 'css/header_footer.css' %}">
 <header class="header" id="header">
     <nav class="nav">
         <p class="logo">Cellular Shop</p>
         <ul class="menu">
             <li><a href="{% url 'store_view' %}">Главная</a></li>
-            <li><a href="">Войти</a></li>
-            <li><a href="">Регистрация</a></li>
+            <li><a href="{% url 'product_view' %}">Каталог</a></li>
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Выйти</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Войти</a></li>
+            {% endif %}
             <li><a href=""><img src="{% static 'img/basket.svg' %}" alt="basket"></a></li>
         </ul>
     </nav>

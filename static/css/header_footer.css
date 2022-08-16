@@ -19,6 +19,11 @@ html {
     justify-content: space-between;
 }
 
+.container {
+    width: 1240px;
+    margin: 0 auto;
+}
+
 /* Шапка */
 
 .menu {

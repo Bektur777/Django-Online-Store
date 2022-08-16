@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block content %}
+    {% include 'include/sidebar.html' %}
     <div class="product-view">
         <div class="wrapper">
             <div class="product-view">
@@ -27,9 +28,17 @@
                     <h2 class="basket-title">
                         Цена: {{ product.price }} сом
                     </h2>
-                    <input type="number">
-                    <button class="basket-btn">Добавить в корзину</button>
-
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'add' id=product.id %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="type" value="{{ type }}">
+                            <input type="hidden" name="url_from" value="{{ request.path }}">
+                            <button type="submit" class="basket-btn">Добавить в корзину</button>
+                        </form>
+                    {% else %}
+                        <br>
+                        <br>
+                    {% endif %}
                 </div>
                 <div class="feature">
                     <h2 class="feature-title">Характеристика</h2>

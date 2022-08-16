@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'store.apps.StoreConfig',
+    'cart.apps.CartConfig',
 
     'ckeditor',
     'ckeditor_uploader',
@@ -69,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.get_len',
             ],
         },
     },
@@ -203,3 +205,6 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+CART_SESSION_ID = 'cart'
+SESSION_COOKIE_AGE = 86400

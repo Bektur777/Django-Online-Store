@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <style>
+    table {
+        border: 1px solid grey;
+    }
+
+    th {
+        border: 1px solid grey;
+    }
+
+    td {
+        border: 1px solid grey;
+    }
+    </style>
+    <table style="width:50%">
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Poster</th>
+            <th>Price</th>
+        </tr>
+        {% for item in goods_items %}
+            {% for goods in item.values %}
+                {% for cart in carts %}
+                    {% if cart.id == goods %}
+
+                        <tr>
+                            <td>{{ cart.id }}</td>
+                            <td>{{ cart.title }}</td>
+                            <td><img src="{{ cart.poster.url }}" alt=""></td>
+                            <td>{{ cart.price }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+    </table>
+
+{% endblock %}

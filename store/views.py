@@ -1,7 +1,7 @@
 from django.contrib.auth import logout, login
 from django.contrib.auth.views import LoginView
 from django.db.models import Q
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
 
@@ -100,3 +100,12 @@ class LoginUser(LoginView):
 def logout_user(request):
     logout(request)
     return redirect('store_view')
+
+
+def cart(request):
+    queryset = Product.objects.all()
+    context = {
+        'carts': queryset,
+        'goods_items': request.session.get('goods'),
+    }
+    return render(request, 'store/cart_list.html', context=context)

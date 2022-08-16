@@ -1,63 +1,64 @@
-{% include 'include/header.html' %}
-<style>
-    .form-input{
-        margin: 20px 0;
-        padding: 0 20px;
-        width: 461px;
-        height: 70px;
-        border: 1px solid #DDDDDD;
-        left: calc(50% - 163px/2 - 93px);
-        top: calc(50% - 28px/2);
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 155%;
-        color: #B0B0B0;
-    }
-    label {
-        font-size: 0;
-    }
-    .btn-input {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 200px;
-        height: 50px;
-        color: #fff;
-        font-weight: 500;
-        font-size: 15px;
-        line-height: 18px;
-        background: #2E2B53;
-        box-shadow: 0 2px 10px #2E2B53;
-        border-radius: 5px;
-        cursor: pointer;
-        text-decoration: none;
-        text-align: center;
-    }
-    .form-block {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 50px;
-    }
-    .form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    .account {
-        text-decoration: none;
-        margin-top: 15px;
-    }
-</style>
-<div class="form-block">
-    <h1>REGISTER</h1>
-    <form method="post" class="form">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn-input">Регистрация</button>
-    </form>
-    <a href="{% url 'login' %}" class="account">Уже есть аккаунт</a>
-</div>
-{% include 'include/footer.html' %}
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        .form-input{
+            margin: 20px 0;
+            padding: 0 20px;
+            width: 461px;
+            height: 70px;
+            border: 1px solid #DDDDDD;
+            left: calc(50% - 163px/2 - 93px);
+            top: calc(50% - 28px/2);
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 155%;
+            color: #B0B0B0;
+        }
+        label {
+            font-size: 0;
+        }
+        .btn-input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 50px;
+            color: #fff;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 18px;
+            background: #2E2B53;
+            box-shadow: 0 2px 10px #2E2B53;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+        .form-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .account {
+            text-decoration: none;
+            margin-top: 15px;
+        }
+    </style>
+    <div class="form-block">
+        <h1>Register</h1>
+        <form method="post" class="form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-input">Регистрация</button>
+        </form>
+        <a href="{% url 'login' %}" class="account">Уже есть аккаунт</a>
+    </div>
+{% endblock %}

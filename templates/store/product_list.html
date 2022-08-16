@@ -8,6 +8,7 @@
 {% endblock %}
 <main>
     {% block content %}
+        {% include 'include/sidebar.html' %}
         <div class="products">
             <div class="products-wrapper">
                 {% for product in product_list %}

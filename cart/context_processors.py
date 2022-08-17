@@ -1,3 +1,5 @@
+from operator import length_hint
+
 
 def get_len(request):
-    return {'count': len(request.session.get('goods'))}
+    return {'count': length_hint(request.session.get('goods'))}

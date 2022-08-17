@@ -2,18 +2,24 @@
 {% load static %}
 {% block content %}
     <style>
-    table {
-        border: 1px solid grey;
-    }
+        table {
+            border: 1px solid grey;
+        }
 
-    th {
-        border: 1px solid grey;
-    }
+        th {
+            border: 1px solid grey;
+        }
 
-    td {
-        border: 1px solid grey;
-    }
+        td {
+            border: 1px solid grey;
+        }
     </style>
+    <h1>Очистить корзину</h1>
+    <form action="{% url 'delete' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="url_from" value="{{ request.path }}">
+        <button type="submit" class="basket-btn">Очистить</button>
+    </form>
     <table style="width:50%">
         <tr>
             <th>Id</th>
@@ -31,6 +37,14 @@
                             <td>{{ cart.title }}</td>
                             <td><img src="{{ cart.poster.url }}" alt=""></td>
                             <td>{{ cart.price }}</td>
+                            <td>
+                                <form action="{% url 'remove' id=cart.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="type" value="{{ type }}">
+                                    <input type="hidden" name="url_from" value="{{ request.path }}">
+                                    <button type="submit" class="basket-btn">Удалить</button>
+                                </form>
+                            </td>
                         </tr>
                     {% endif %}
                 {% endfor %}

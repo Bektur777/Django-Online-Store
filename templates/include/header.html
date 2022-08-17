@@ -20,7 +20,11 @@
             {% else %}
                 <li><a href="{% url 'login' %}">Войти</a></li>
             {% endif %}
-            <li><a href=""><img src="{% static 'img/basket.svg' %}" alt="basket">{{ count }}</a></li>
+            <li>
+                <a href=""><img src="{% static 'img/basket.svg' %}" alt="basket">
+                    {{ count }}
+                </a>
+            </li>
         </ul>
     </nav>
 </header>

@@ -26,3 +26,6 @@ class OrderItem(models.Model):
     price = models.IntegerField('Цена')
     quantity = models.IntegerField('Количество', default=1)
 
+    class Meta:
+        verbose_name = 'Заказанный продукт'
+        verbose_name_plural = 'Заказанные продукты'

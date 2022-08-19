@@ -25,3 +25,4 @@ class OrderItem(models.Model):
     product = models.ForeignKey(Product, related_name='Товар', on_delete=models.CASCADE)
     price = models.IntegerField('Цена')
     quantity = models.IntegerField('Количество', default=1)
+

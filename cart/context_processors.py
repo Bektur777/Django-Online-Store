@@ -10,7 +10,7 @@ def get_len(request):
 
 
 def sum_goods(request):
-    count = 0
+    request.session['total_price'] = 0
 
     if request.session.get('goods') is None:
         pass
@@ -18,6 +18,6 @@ def sum_goods(request):
         for i in request.session.get('goods'):
             for j in i.values():
                 product = Product.objects.get(pk=j)
-                count += product.price
+                request.session['total_price'] += product.price
 
-    return {'total_price': count}
+    return {'total_price': request.session['total_price']}

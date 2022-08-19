@@ -22,7 +22,9 @@
             {% endif %}
             <li>
                 <a href="{% url 'cart' %}"><img src="{% static 'img/basket.svg' %}" alt="basket">
-                    {{ count }}
+                    {% if user.is_authenticated %}
+                        {{ count }}
+                    {% endif %}
                 </a>
             </li>
         </ul>

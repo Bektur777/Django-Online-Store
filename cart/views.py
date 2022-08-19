@@ -1,5 +1,9 @@
+from operator import length_hint
+
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_POST
+
+from store.models import Product
 
 
 @require_POST
@@ -10,7 +14,6 @@ def add_to_cart(request, id):
         request.session['goods'] = list(request.session['goods'])
 
     add_data = {
-        'type': request.POST.get('type'),
         'id': id,
     }
 
@@ -22,7 +25,7 @@ def add_to_cart(request, id):
 @require_POST
 def remove_from_cart(request, id):
     for item in request.session['goods']:
-        if item['id'] == id and item['type'] == request.POST.get('type'):
+        if item['id'] == id:
             item.clear()
 
     while {} in request.session['goods']:

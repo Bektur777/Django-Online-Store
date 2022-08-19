@@ -1,55 +1,75 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}
+    Basket
+{% endblock %}
+{% block style %}
+    href="{% static 'css/cart_view.css' %}"
+{% endblock %}
 {% block content %}
-    <style>
-        table {
-            border: 1px solid grey;
-        }
-
-        th {
-            border: 1px solid grey;
-        }
-
-        td {
-            border: 1px solid grey;
-        }
-    </style>
-    <h1>Очистить корзину</h1>
-    <form action="{% url 'delete' %}" method="post">
-        {% csrf_token %}
-        <input type="hidden" name="url_from" value="{{ request.path }}">
-        <button type="submit" class="basket-btn">Очистить</button>
-    </form>
-    <table style="width:50%">
-        <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Poster</th>
-            <th>Price</th>
-        </tr>
-        {% for item in goods_items %}
-            {% for goods in item.values %}
-                {% for cart in carts %}
-                    {% if cart.id == goods %}
-
-                        <tr>
-                            <td>{{ cart.id }}</td>
-                            <td>{{ cart.title }}</td>
-                            <td><img src="{{ cart.poster.url }}" alt=""></td>
-                            <td>{{ cart.price }}</td>
-                            <td>
-                                <form action="{% url 'remove' id=cart.id %}" method="post">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="type" value="{{ type }}">
-                                    <input type="hidden" name="url_from" value="{{ request.path }}">
-                                    <button type="submit" class="basket-btn">Удалить</button>
-                                </form>
-                            </td>
-                        </tr>
-                    {% endif %}
+    <nav>
+        <ul class="wrapper navigation-wrapper">
+            <li><a href="#"><span>Профиль</span></a></li>
+            <li><a href="#"><span class="navigation-title-active">Корзина</span></a></li>
+            <li><a href="#"><span>Заказы</span></a></li>
+        </ul>
+    </nav>
+    {% if count == 0 %}
+        <div class="cart">
+            <p style="text-align: center; margin: 20px 0">Корзина пустая</p>
+        </div>
+    {% else %}
+        <table class="cart">
+            <tr>
+                <th>Картинка</th>
+                <th>Имя продукта</th>
+                <th>Цена</th>
+                <th>Удалить</th>
+            </tr>
+            {% for item in goods_items %}
+                {% for goods in item.values %}
+                    {% for cart in carts %}
+                        {% if cart.id == goods %}
+                            <tr align="center">
+                                <td><img src="{{ cart.poster.url }}" alt="" class="cart-img"></td>
+                                <td>{{ cart.title }}</td>
+                                <td>{{ cart.price }} сом</td>
+                                <td>
+                                    <form action="{% url 'remove' id=cart.id %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="type" value="{{ type }}">
+                                        <input type="hidden" name="url_from" value="{{ request.path }}">
+                                        <button type="submit" class="cart-btn">Удалить</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
                 {% endfor %}
             {% endfor %}
-        {% endfor %}
-    </table>
+        </table>
+        <div class="wrapper">
+            <div class="coupon-block">
+                <h2>Купон</h2>
+                <input type="text" placeholder="Введите промокод" class="coupon">
+                <button class="btn">Применить</button>
+            </div>
+            <div class="total-price-block">
+                <h2>Общая сумма</h2>
+                <div class="wrapper total-price">
+                    <p>Общая сумма:</p>
+                    <p>{{ total_price }} сом</p>
+                </div>
+                <div class="wrapper">
+                    <form action="{% url 'delete' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="url_from" value="{{ request.path }}">
+                        <button type="submit" class="btn">Очистить корзину</button>
+                    </form>
+                    <button class="btn">Заказать</button>
+                </div>
+            </div>
+        </div>
+    {% endif %}
 
 {% endblock %}

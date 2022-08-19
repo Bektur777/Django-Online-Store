@@ -8,53 +8,55 @@
 {% endblock %}
 
 {% block content %}
-    {% include 'include/sidebar.html' %}
-    <div class="product-view">
-        <div class="wrapper">
-            <div class="product-view">
-                <h1 class="product-title">
-                    {{ product.title }}
-                </h1>
-                <img src="{{ product.poster.url }}" alt="phone" class="product-img">
-                <div class="dots-wrapper">
-                    <span class="dot dot-deactive"></span>
-                    <span class="dot"></span>
-                    <span class="dot dot-deactive"></span>
-                    <span class="dot dot-deactive"></span>
+    <div class="wrapper">
+        {% include 'include/sidebar.html' %}
+        <div class="product-view">
+            <div class="wrapper">
+                <div class="product-view">
+                    <h1 class="product-title">
+                        {{ product.title }}
+                    </h1>
+                    <img src="{{ product.poster.url }}" alt="phone" class="product-img">
+                    <div class="dots-wrapper">
+                        <span class="dot dot-deactive"></span>
+                        <span class="dot"></span>
+                        <span class="dot dot-deactive"></span>
+                        <span class="dot dot-deactive"></span>
+                    </div>
+                </div>
+                <div class="product-feature">
+                    <div class="basket">
+                        <h2 class="basket-title">
+                            Цена: {{ product.price }} сом
+                        </h2>
+                        {% if user.is_authenticated %}
+                            <form action="{% url 'add' id=product.id %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="type" value="{{ type }}">
+                                <input type="hidden" name="url_from" value="{{ request.path }}">
+                                <button type="submit" class="basket-btn">Добавить в корзину</button>
+                            </form>
+                        {% else %}
+                            <br>
+                            <br>
+                        {% endif %}
+                    </div>
+                    <div class="feature">
+                        <h2 class="feature-title">Характеристика</h2>
+                        <p class="feature-text">Производитель .............................. {{ product.manufacture }}</p>
+                        <p class="feature-text">Модель ................................................. {{ product.title }}</p>
+                        <p class="feature-text">Цвета в наличии ........................... Red/Black</p>
+                        <p class="feature-text">Дата выпуска ................................... {{ product.year }}</p>
+                        <p class="feature-text">Операционная системa .......... {{ product.operating_system }}</p>
+                        <p class="feature-text">Память .................................................. {{ product.memory }}</p>
+                        <p class="feature-text">Процессор ........................................ {{ product.cpu }}</p>
+                    </div>
                 </div>
             </div>
-            <div class="product-feature">
-                <div class="basket">
-                    <h2 class="basket-title">
-                        Цена: {{ product.price }} сом
-                    </h2>
-                    {% if user.is_authenticated %}
-                        <form action="{% url 'add' id=product.id %}" method="post">
-                            {% csrf_token %}
-                            <input type="hidden" name="type" value="{{ type }}">
-                            <input type="hidden" name="url_from" value="{{ request.path }}">
-                            <button type="submit" class="basket-btn">Добавить в корзину</button>
-                        </form>
-                    {% else %}
-                        <br>
-                        <br>
-                    {% endif %}
-                </div>
-                <div class="feature">
-                    <h2 class="feature-title">Характеристика</h2>
-                    <p class="feature-text">Производитель .............................. {{ product.manufacture }}</p>
-                    <p class="feature-text">Модель ................................................. {{ product.title }}</p>
-                    <p class="feature-text">Цвета в наличии ........................... Red/Black</p>
-                    <p class="feature-text">Дата выпуска ................................... {{ product.year }}</p>
-                    <p class="feature-text">Операционная системa .......... {{ product.operating_system }}</p>
-                    <p class="feature-text">Память .................................................. {{ product.memory }}</p>
-                    <p class="feature-text">Процессор ........................................ {{ product.cpu }}</p>
-                </div>
+            <div class="description">
+                <h2 class="description-title">Описание</h2>
+                <p class="description-text">{{ product.description|safe }}</p>
             </div>
-        </div>
-        <div class="description">
-            <h2 class="description-title">Описание</h2>
-            <p class="description-text">{{ product.description|safe }}</p>
         </div>
     </div>
 {% endblock %}

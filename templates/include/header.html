@@ -21,7 +21,7 @@
                 <li><a href="{% url 'login' %}">Войти</a></li>
             {% endif %}
             <li>
-                <a href=""><img src="{% static 'img/basket.svg' %}" alt="basket">
+                <a href="{% url 'cart' %}"><img src="{% static 'img/basket.svg' %}" alt="basket">
                     {{ count }}
                 </a>
             </li>

@@ -7,29 +7,30 @@
     href="{% static 'css/ordering.css' %}"
 {% endblock %}
 {% block content %}
-    <div class="container">
-        <h1 class="order-title">Оформление заказа</h1>
+    <h1 class="order-title">Оформление заказа</h1>
+    <form action="{% url 'order:order' %}" method="post">
+        {% csrf_token %}
         <div class="order-block">
             <h2 class="block-title">Адрес доставки</h2>
             <div class="ordering-block">
                 <div class="wrapper ordering-wrapper">
                     <div>
                         <p class="ordering-title">Имя</p>
-                        <input type="text" class="ordering-input" placeholder="Введите имя">
+                        <input type="text" class="ordering-input" placeholder="Введите имя" name="first_name">
                     </div>
                     <div>
                         <p class="ordering-title">Фамилия</p>
-                        <input type="text" class="ordering-input" placeholder="Введите фамилию">
+                        <input type="text" class="ordering-input" placeholder="Введите фамилию" name="last_name">
                     </div>
                 </div>
                 <div class="wrapper">
                     <div>
                         <p class="ordering-title">Адрес</p>
-                        <input type="text" class="ordering-input" placeholder="Введите адрес">
+                        <input type="text" class="ordering-input" placeholder="Введите адрес" name="address">
                     </div>
                     <div>
                         <p class="ordering-title">Город</p>
-                        <input type="text" class="ordering-input" placeholder="Введите город">
+                        <input type="text" class="ordering-input" placeholder="Введите город" name="city">
                     </div>
                 </div>
             </div>
@@ -40,22 +41,22 @@
                 <div class="wrapper">
                     <div>
                         <p class="ordering-title">Почта</p>
-                        <input type="text" class="ordering-input" placeholder="Введите e-mail">
+                        <input type="email" class="ordering-input" placeholder="Введите e-mail" name="email">
                     </div>
                     <div>
                         <p class="ordering-title">Номер телефона</p>
-                        <input type="text" class="ordering-input" placeholder="Введите номер телефона">
+                        <input type="text" class="ordering-input" placeholder="Введите номер телефона" name="phone">
                     </div>
                 </div>
             </div>
         </div>
         <div class="wrapper btn-wrapper">
-            <button class="btn">
+            <a href="{% url 'cart' %}" class="btn">
                 Отмена
-            </button>
-            <button class="btn">
+            </a>
+            <button type="submit" class="btn">
                 Заказать
             </button>
         </div>
-    </div>
+    </form>
 {% endblock %}

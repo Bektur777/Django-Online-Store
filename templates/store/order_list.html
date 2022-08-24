@@ -5,5 +5,9 @@
 {% endblock %}
 
 {% block content %}
-    {{ total_price }}
+    {% for order in orders %}
+        {{ order.product }}
+        {{ order.price }}
+    {% endfor %}
+
 {% endblock %}

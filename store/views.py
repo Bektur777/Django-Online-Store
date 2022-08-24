@@ -109,3 +109,4 @@ def cart(request):
         'goods_items': request.session.get('goods'),
     }
     return render(request, 'store/cart_list.html', context=context)
+

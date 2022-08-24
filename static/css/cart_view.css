@@ -71,6 +71,7 @@
 }
 
 .btn {
+    display: flex;
     width: 200px;
     height: 50px;
     background: #2E2B53;
@@ -79,6 +80,10 @@
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .coupon-block {

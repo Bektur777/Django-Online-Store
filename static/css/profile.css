@@ -36,7 +36,7 @@
     border: 1px solid #000000;
     border-radius: 10px;
     margin-right: 240px;
-    padding: 45px 120px 45px 40px;
+    padding: 45px 120px 25px 40px;
 }
 
 .profile-wrapper {
@@ -52,6 +52,10 @@
 }
 
 .profile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
     width: 120px;
     height: 30px;
     border: 1px solid #000000;

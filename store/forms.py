@@ -6,7 +6,13 @@ from django.contrib.auth.models import User
 class RegisterUserForm(UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-input',
+        'placeholder': 'Введите имя пользователя'}))
+    first_name = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-input',
         'placeholder': 'Введите имя'}))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-input',
+        'placeholder': 'Введите фамилию'}))
     email = forms.EmailField(widget=forms.EmailInput(attrs={
         'class': 'form-input',
         'placeholder': 'Введите e-mail'
@@ -20,7 +26,7 @@ class RegisterUserForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
 
 
 class LoginUserForm(AuthenticationForm):

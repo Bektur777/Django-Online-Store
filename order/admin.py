@@ -5,7 +5,8 @@ from .models import Order, OrderItem
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('user', 'email', 'phone', 'paid', 'created')
+    list_display = ('id', 'user', 'email', 'phone', 'paid', 'created')
+    list_display_links = ('user',)
     search_fields = ('user', 'email',)
     list_editable = ('paid',)
 

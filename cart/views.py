@@ -1,9 +1,5 @@
-from operator import length_hint
-
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_POST
-
-from store.models import Product
 
 
 @require_POST

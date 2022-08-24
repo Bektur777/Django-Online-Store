@@ -5,9 +5,12 @@
 {% endblock %}
 
 {% block content %}
-    {% for order in orders %}
-        {{ order.product }}
-        {{ order.price }}
+    {% for i in orders.all %}
+        {% if user.id == i.order.user.id %}
+            {{ i.id }}
+            <img src="{{ i.product.poster.url }}" alt="poster">
+            {{ i.product }}
+            {{ i.order.created }}
+        {% endif %}
     {% endfor %}
-
 {% endblock %}

@@ -110,3 +110,6 @@ def cart(request):
     }
     return render(request, 'store/cart_list.html', context=context)
 
+
+def profile(request):
+    return render(request, 'store/profile.html')

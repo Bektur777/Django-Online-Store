@@ -10,30 +10,28 @@
     <nav>
         <ul class="wrapper navigation-wrapper">
             <li><a href=""><span class="navigation-title-active">Профиль</span></a></li>
-            <li><a href=""><span>Корзина</span></a></li>
-            <li><a href=""><span>Заказы</span></a></li>
+            <li><a href="{% url 'cart' %}"><span>Корзина</span></a></li>
+            <li><a href="{% url 'order:get_orders' %}"><span>Заказы</span></a></li>
         </ul>
     </nav>
     <h1 class="profile-title">Аккаунт</h1>
     <div class="wrapper">
-        <img src="./img/profile.svg" alt="avatar" class="profile-img">
+        <img src="{% static 'img/profile.svg' %}" alt="avatar" class="profile-img">
         <div>
             <div class="profile-block">
-                <div class="wrapper profile-wrapper"><p>Имя пользователя:</p><p>Admin</p></div>
-                <div class="wrapper profile-wrapper"><p>Имя:</p><p>Бектур</p></div>
-                <div class="wrapper profile-wrapper"><p>Фамилия:</p><p>Уланбекович</p></div>
-                <div class="wrapper profile-wrapper"><p>Адрес электронной почты:</p><p>admin@mail.ru</p></div>
-                <div class="wrapper profile-wrapper"><p>Пароль:</p><p>************</p></div>
+                <div class="wrapper profile-wrapper"><p>Имя пользователя:</p><p>{{ user.username }}</p></div>
+                <div class="wrapper profile-wrapper"><p>Имя:</p><p>{{ user.first_name }}</p></div>
+                <div class="wrapper profile-wrapper"><p>Фамилия:</p><p>{{ user.last_name }}</p></div>
+                <div class="wrapper profile-wrapper"><p>Адрес электронной почты:</p><p>{{ user.email }}</p></div>
             </div>
-            <button class="profile-btn">Изменить</button>
-            <button class="profile-btn">Выйти</button>
+            <a href="{% url 'logout' %}" class="profile-btn">Выйти</a>
         </div>
     </div>
     <h2 class="last-view-title">Последние просмотренные</h2>
     <div class="wrapper products-wrapper">
         <div class="product-block">
             <div class="product-img-block">
-                <img src="img/product_img.svg" alt="iphone" class="product-img">
+                <img src="{% static 'img/iphone.svg' %}" alt="iphone" class="product-img">
             </div>
             <div class="product-cart">
                 <p class="product-title">Iphone 13 Pro Max</p>
@@ -42,7 +40,7 @@
         </div>
         <div class="product-block">
             <div class="product-img-block">
-                <img src="img/product_img.svg" alt="iphone" class="product-img">
+                <img src="{% static 'img/iphone.svg' %}" alt="iphone" class="product-img">
             </div>
             <div class="product-cart">
                 <p class="product-title">Iphone 13 Pro Max</p>
@@ -51,7 +49,7 @@
         </div>
         <div class="product-block">
             <div class="product-img-block">
-                <img src="img/product_img.svg" alt="iphone" class="product-img">
+                <img src="{% static 'img/iphone.svg' %}" alt="iphone" class="product-img">
             </div>
             <div class="product-cart">
                 <p class="product-title">Iphone 13 Pro Max</p>
@@ -60,7 +58,7 @@
         </div>
         <div class="product-block">
             <div class="product-img-block">
-                <img src="img/product_img.svg" alt="iphone" class="product-img">
+                <img src="{% static 'img/iphone.svg' %}" alt="iphone" class="product-img">
             </div>
             <div class="product-cart">
                 <p class="product-title">Iphone 13 Pro Max</p>

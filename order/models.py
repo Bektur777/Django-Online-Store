@@ -5,7 +5,7 @@ from store.models import Product
 
 
 class Order(models.Model):
-    user = models.ForeignKey(User, related_name='Заказы', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='orders', on_delete=models.CASCADE)
     first_name = models.CharField('Имя', max_length=50)
     last_name = models.CharField('Фамилия', max_length=50)
     email = models.EmailField()
@@ -21,8 +21,8 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
-    order = models.ForeignKey(Order, related_name='Заказ', on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, related_name='Товар', on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, related_name='order', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, related_name='product', on_delete=models.CASCADE)
     price = models.IntegerField('Цена')
     quantity = models.IntegerField('Количество', default=1)
 

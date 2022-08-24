@@ -9,9 +9,9 @@
 {% block content %}
     <nav>
         <ul class="wrapper navigation-wrapper">
-            <li><a href="#"><span>Профиль</span></a></li>
-            <li><a href="#"><span class="navigation-title-active">Корзина</span></a></li>
-            <li><a href="#"><span>Заказы</span></a></li>
+            <li><a href="{% url 'profile' %}"><span>Профиль</span></a></li>
+            <li><a href=""><span class="navigation-title-active">Корзина</span></a></li>
+            <li><a href="{% url 'order:get_orders' %}"><span>Заказы</span></a></li>
         </ul>
     </nav>
     {% if count == 0 %}

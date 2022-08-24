@@ -1,0 +1,61 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block title %}
+    Make order
+{% endblock %}
+{% block style %}
+    href="{% static 'css/ordering.css' %}"
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1 class="order-title">Оформление заказа</h1>
+        <div class="order-block">
+            <h2 class="block-title">Адрес доставки</h2>
+            <div class="ordering-block">
+                <div class="wrapper ordering-wrapper">
+                    <div>
+                        <p class="ordering-title">Имя</p>
+                        <input type="text" class="ordering-input" placeholder="Введите имя">
+                    </div>
+                    <div>
+                        <p class="ordering-title">Фамилия</p>
+                        <input type="text" class="ordering-input" placeholder="Введите фамилию">
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div>
+                        <p class="ordering-title">Адрес</p>
+                        <input type="text" class="ordering-input" placeholder="Введите адрес">
+                    </div>
+                    <div>
+                        <p class="ordering-title">Город</p>
+                        <input type="text" class="ordering-input" placeholder="Введите город">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="order-block">
+            <h2 class="block-title">Контакты</h2>
+            <div class="ordering-block">
+                <div class="wrapper">
+                    <div>
+                        <p class="ordering-title">Почта</p>
+                        <input type="text" class="ordering-input" placeholder="Введите e-mail">
+                    </div>
+                    <div>
+                        <p class="ordering-title">Номер телефона</p>
+                        <input type="text" class="ordering-input" placeholder="Введите номер телефона">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper btn-wrapper">
+            <button class="btn">
+                Отмена
+            </button>
+            <button class="btn">
+                Заказать
+            </button>
+        </div>
+    </div>
+{% endblock %}

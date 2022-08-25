@@ -21,11 +21,7 @@
                 <li><a href="{% url 'login' %}">Войти</a></li>
             {% endif %}
             <li>
-                <a href="{% url 'cart' %}"><img src="{% static 'img/basket.svg' %}" alt="basket">
-                    {% if user.is_authenticated %}
-                        {{ count }}
-                    {% endif %}
-                </a>
+                <a href="{% url 'cart' %}"><img src="{% static 'img/basket.svg' %}" alt="basket">{{ count }}</a>
             </li>
         </ul>
     </nav>

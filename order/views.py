@@ -33,5 +33,5 @@ def order(request):
 
 
 def get_order(request):
-    orders = OrderItem.objects.all()
+    orders = OrderItem.objects.all().order_by('-order__created')
     return render(request, 'store/order_list.html', context={'orders': orders})

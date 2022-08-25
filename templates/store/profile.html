@@ -24,7 +24,11 @@
                 <div class="wrapper profile-wrapper"><p>Фамилия:</p><p>{{ user.last_name }}</p></div>
                 <div class="wrapper profile-wrapper"><p>Адрес электронной почты:</p><p>{{ user.email }}</p></div>
             </div>
-            <a href="{% url 'logout' %}" class="profile-btn">Выйти</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="profile-btn">Выйти</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="profile-btn">Войти</a>
+            {% endif %}
         </div>
     </div>
     <h2 class="last-view-title">Последние просмотренные</h2>

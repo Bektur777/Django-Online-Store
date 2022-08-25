@@ -3,14 +3,45 @@
 {% block title %}
     Order
 {% endblock %}
-
+{% block style %}
+    href="{% static 'css/order_list.css' %}"
+{% endblock %}
 {% block content %}
-    {% for i in orders.all %}
-        {% if user.id == i.order.user.id %}
-            {{ i.id }}
-            <img src="{{ i.product.poster.url }}" alt="poster">
-            {{ i.product }}
-            {{ i.order.created }}
-        {% endif %}
-    {% endfor %}
+    <nav>
+        <ul class="wrapper navigation-wrapper">
+            <li><a href="{% url 'profile' %}"><span>Профиль</span></a></li>
+            <li><a href="{% url 'cart' %}"><span>Корзина</span></a></li>
+            <li><a href=""><span class="navigation-title-active">Заказы</span></a></li>
+        </ul>
+    </nav>
+    <div class="wrapper order-block">
+        <ul style="list-style: none outside none;" class="wrapper order-wrapper order-title">
+            <li style="float: left;display: block;">Id товара</li>
+            <li style="float: left;display: block;">Имя товара</li>
+            <li style="float: left;display: block;">Цена</li>
+            <li style="float: left;display: block;">Количество</li>
+            <li style="float: left;display: block;">Дата</li>
+            <li style="float: left;display: block;">Статус</li>
+        </ul>
+        {% for i in orders.all %}
+            {% if user.id == i.order.user.id %}
+                <hr class="line">
+                <ul style="list-style: none outside none;" class="wrapper order-wrapper">
+                    <li style="float: left;display: block;">{{ i.id }}</li>
+                    <li style="float: left;display: block;">{{ i.product.title }}</li>
+                    <li style="float: left;display: block;">{{ i.product.price }} сом</li>
+                    <li style="float: left;display: block;">{{ i.quantity }}</li>
+                    <li style="float: left;display: block;">{{ i.order.created }}</li>
+                    <li style="float: left;display: block;">
+                        {% if i.order.paid %}
+                            Оплачен
+                        {% else %}
+                            Не оплачен
+                        {% endif %}
+                    </li>
+                </ul>
+            {% endif %}
+        {% endfor %}
+        <hr class="line">
+    </div>
 {% endblock %}

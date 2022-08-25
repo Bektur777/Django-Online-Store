@@ -43,7 +43,7 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 15px;
-    color: #B0B0B0;
+    color: #000;
 }
 
 .btn {
@@ -67,4 +67,10 @@
 .btn-wrapper {
     margin-bottom: 100px;
     padding: 0 15%;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

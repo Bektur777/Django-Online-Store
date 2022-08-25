@@ -1,3 +1,4 @@
+{% load contact_tags %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -12,157 +13,144 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    {% include 'include/header.html' %}
+{% include 'include/header.html' %}
 
-    <section>
-        <div class="container">
-            <div class="wrapper">
-                <div class="offer">
-                    <h1 class="offer-title">Store for cellular accessories</h1>
-                    <p class="offer-text">Целью нешего магазина является обеспечить людей сотовыми аксессуарами по доступной цене</p>
-                    <a class="btn" href="{% url 'product_view' %}">Каталог</a>
+<section>
+    <div class="container">
+        <div class="wrapper">
+            <div class="offer">
+                <h1 class="offer-title">Store for cellular accessories</h1>
+                <p class="offer-text">Целью нешего магазина является обеспечить людей сотовыми аксессуарами по доступной цене</p>
+                <a class="btn" href="{% url 'product_view' %}">Каталог</a>
+            </div>
+            <div class="carousel">
+                <div class="slide-wrapper">
+                    <div class="slide deactive">
+                        <img src="{% static 'img/headphone.svg' %}" alt="headphone" class="slide-img">
+                        <div class="slide-cart">
+                            <p class="slide-title">Airpods Max</p>
+                            <p class="slide-text">$999</p>
+                        </div>
+                    </div>
+                    <div class="arrow left-arrow" id="btn-prev"><img src="{% static 'img/left_arrow.svg' %}" alt=""></div>
+                    <div class="slide">
+                        <img src="{% static 'img/iphone.svg' %}" alt="iphone" class="slide-img">
+                        <div class="slide-cart">
+                            <p class="slide-title">Iphone 13 Pro Max</p>
+                            <p class="slide-text">$1199</p>
+                        </div>
+                    </div>
+                    <div class="arrow right-arrow" id="btn-next"><img src="{% static 'img/right_arrow.svg' %}" alt=""></div>
+                    <div class="slide deactive">
+                        <img src="{% static 'img/playstation.svg' %}" alt="playstation" class="slide-img">
+                        <div class="slide-cart">
+                            <p class="slide-title">Playstation 5</p>
+                            <p class="slide-text">$499</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="carousel">
-                    <div class="slide-wrapper">
-                        <div class="slide deactive">
-                            <img src="{% static 'img/headphone.svg' %}" alt="headphone" class="slide-img">
-                            <div class="slide-cart">
-                                <p class="slide-title">Airpods Max</p>
-                                <p class="slide-text">$999</p>
-                            </div>
-                        </div>
-                        <div class="arrow left-arrow" id="btn-prev"><img src="{% static 'img/left_arrow.svg' %}" alt=""></div>
-                        <div class="slide">
-                            <img src="{% static 'img/iphone.svg' %}" alt="iphone" class="slide-img">
-                            <div class="slide-cart">
-                                <p class="slide-title">Iphone 13 Pro Max</p>
-                                <p class="slide-text">$1199</p>
-                            </div>
-                        </div>
-                        <div class="arrow right-arrow" id="btn-next"><img src="{% static 'img/right_arrow.svg' %}" alt=""></div>
-                        <div class="slide deactive">
-                            <img src="{% static 'img/playstation.svg' %}" alt="playstation" class="slide-img">
-                            <div class="slide-cart">
-                                <p class="slide-title">Playstation 5</p>
-                                <p class="slide-text">$499</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dots-wrapper">
-                        <span class="dot dot-deactive"></span>
-                        <span class="dot"></span>
-                        <span class="dot dot-deactive"></span>
-                    </div>
+                <div class="dots-wrapper">
+                    <span class="dot dot-deactive"></span>
+                    <span class="dot"></span>
+                    <span class="dot dot-deactive"></span>
                 </div>
             </div>
         </div>
-    </section>
-    <main>
-        <div class="container">
-            <section class="catalog" id="catalog">
-                <div class="wrapper product-wrapper">
-                    <hr class="line">
-                    <h2 class="catalog-title">Каталог</h2>
-                    <hr class="line">
-                </div>
-                <div class="block-catalog">
-                    <div class="wrapper">
-                        <div class="phone-block">
-                            <h3 class="product-title">Телефоны</h3>
-                            <img src="{% static 'img/samsung.svg' %}" alt="samsung" class="samsung-img">
-                        </div>
-                        <div class="product-block">
-                            <div class="wrapper">
-                                <div class="product first-product">
-                                    <h3 class="product-title">Наушники</h3>
-                                    <img src="{% static 'img/catalog_headphone.svg' %}" alt="headphone" class="product-img">
-                                </div>
-                                <div class="product second-product">
-                                    <h3 class="product-title">Приставка</h3>
-                                    <img src="{% static 'img/catalog_playstation.svg' %}" alt="playstation" class="product-img">
-                                </div>
+    </div>
+</section>
+<main>
+    <div class="container">
+        <section class="catalog" id="catalog">
+            <div class="wrapper product-wrapper">
+                <hr class="line">
+                <h2 class="catalog-title">Каталог</h2>
+                <hr class="line">
+            </div>
+            <div class="block-catalog">
+                <div class="wrapper">
+                    <div class="phone-block">
+                        <h3 class="product-title">Телефоны</h3>
+                        <img src="{% static 'img/samsung.svg' %}" alt="samsung" class="samsung-img">
+                    </div>
+                    <div class="product-block">
+                        <div class="wrapper">
+                            <div class="product first-product">
+                                <h3 class="product-title">Наушники</h3>
+                                <img src="{% static 'img/catalog_headphone.svg' %}" alt="headphone" class="product-img">
                             </div>
-                            <div class="third-product">
-                                <h3 class="product-title">Клавиатура</h3>
-                                <img src="{% static 'img/keyboard.svg' %}" alt="keyboard" class="product-img keyboard">
+                            <div class="product second-product">
+                                <h3 class="product-title">Приставка</h3>
+                                <img src="{% static 'img/catalog_playstation.svg' %}" alt="playstation" class="product-img">
                             </div>
                         </div>
+                        <div class="third-product">
+                            <h3 class="product-title">Клавиатура</h3>
+                            <img src="{% static 'img/keyboard.svg' %}" alt="keyboard" class="product-img keyboard">
+                        </div>
                     </div>
                 </div>
-            </section>
-            <section class="novelties" id="novelties">
-                <div class="wrapper product-wrapper">
-                    <hr class="line">
-                    <h2 class="catalog-title">Новинки</h2>
-                    <hr class="line">
-                </div>
-                <div class="wrapper">
+            </div>
+        </section>
+        <section class="novelties" id="novelties">
+            <div class="wrapper product-wrapper">
+                <hr class="line">
+                <h2 class="catalog-title">Новинки</h2>
+                <hr class="line">
+            </div>
+            <div class="wrapper">
+                {% for i in store %}
                     <div class="product-cart">
-                        <img src="{% static 'img/novelties-headphones.svg' %}" alt="headphones" class="novelties-img">
-                        <h3 class="novelties-title">HyperX Cloud Orbit S</h3>
-                        <p class="novelties-price">$349</p>
+                        <img src="{{ i.poster.url }}" alt="headphones" class="novelties-img">
+                        <a href="{{ i.get_absolute_url }}" class="novelties-title">{{ i.title }}</a>
+                        <p class="novelties-price">{{ i.price }} сом</p>
                     </div>
-                    <div class="product-cart">
-                        <img src="{% static 'img/xbox.svg' %}" alt="xbox" class="novelties-img">
-                        <h3 class="novelties-title">XBOX series X</h3>
-                        <p class="novelties-price">$699</p>
+                {% endfor %}
+            </div>
+            <div class="btn-block">
+                <a href="{% url 'product_view' %}" class="btn novelties-btn">Смотреть все новинки</a>
+            </div>
+        </section>
+        <section class="feedback" id="feedback">
+            <h2 class="feedback-title">Почему следует выбрать именно нас</h2>
+            <div class="wrapper">
+                <div class="orders">
+                    <h3 class="orders-title">100+</h3>
+                    <p class="orders-text">Заказов в день</p>
+                </div>
+                <div>
+                    <div class="wrapper wrapper-block">
+                        <img src="{% static 'img/icon1.svg' %}" alt="icon" class="icon">
+                        <p class="feedback-text">Рассрочка на телефоны на выгодных условиях</p>
                     </div>
-                    <div class="product-cart">
-                        <img src="{% static 'img/novelties_phone.svg' %}" alt="Iphone" class="novelties-img">
-                        <h3 class="novelties-title">Iphone 13 Pro</h3>
-                        <p class="novelties-price">$999</p>
+                    <div class="wrapper wrapper wrapper-block">
+                        <img src="{% static 'img/icon2.svg' %}" alt="icon" class="icon">
+                        <p class="feedback-text">Гарантия на любые покупки</p>
                     </div>
                 </div>
-                <div class="btn-block">
-                    <button class="btn novelties-btn">Смотреть все новинки</button>
-                </div>
-            </section>
-            <section class="feedback" id="feedback">
-                <h2 class="feedback-title">Почему следует выбрать именно нас</h2>
-                <div class="wrapper">
-                    <div class="orders">
-                        <h3 class="orders-title">100+</h3>
-                        <p class="orders-text">Заказов в день</p>
+                <div>
+                    <div class="wrapper wrapper-block">
+                        <img src="{% static 'img/icon3.svg' %}" alt="icon" class="icon">
+                        <p class="feedback-text">Фиксированные цены на аксессуары</p>
                     </div>
-                    <div>
-                        <div class="wrapper wrapper-block">
-                            <img src="{% static 'img/icon1.svg' %}" alt="icon" class="icon">
-                            <p class="feedback-text">Рассрочка на телефоны на выгодных условиях</p>
-                        </div>
-                        <div class="wrapper wrapper wrapper-block">
-                            <img src="{% static 'img/icon2.svg' %}" alt="icon" class="icon">
-                            <p class="feedback-text">Гарантия на любые покупки</p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="wrapper wrapper-block">
-                            <img src="{% static 'img/icon3.svg' %}" alt="icon" class="icon">
-                            <p class="feedback-text">Фиксированные цены на аксессуары</p>
-                        </div>
-                        <div class="wrapper wrapper-block">
-                            <img src="{% static 'img/icon4.svg' %}" alt="icon" class="icon">
-                            <p class="feedback-text">Бесплатная доставка в радиусе 4км</p>
-                        </div>
+                    <div class="wrapper wrapper-block">
+                        <img src="{% static 'img/icon4.svg' %}" alt="icon" class="icon">
+                        <p class="feedback-text">Бесплатная доставка в радиусе 4км</p>
                     </div>
                 </div>
-                <div class="wrapper wrapper-question">
-                    <div class="questions">
-                        <h3 class="questions-title">
-                            Если есть вопросы. Свяжитесь с нами
-                        </h3>
-                        <form action="#" class="form">
-                            <input type="text" placeholder="Введите имя" class="input-information" required>
-                            <input type="email" placeholder="Введите e-mail" class="input-information" required>
-                            <input type="text" placeholder="Введите вопрос" class="input-information" required>
-                            <button type="submit" class="question-btn">Отправить</button>
-                        </form>
-                    </div>
-                    <img src="{% static 'img/image_question.svg' %}" alt="image" class="image">
+            </div>
+            <div class="wrapper wrapper-question">
+                <div class="questions">
+                    <h3 class="questions-title">
+                        Если есть вопросы. Свяжитесь с нами
+                    </h3>
+                    {% contact_form %}
                 </div>
-            </section>
-        </div>
-    </main>
-    {% include 'include/footer.html' %}
-    <script src="{% static 'js/main.js' %}"></script>
+                <img src="{% static 'img/image_question.svg' %}" alt="image" class="image">
+            </div>
+        </section>
+    </div>
+</main>
+{% include 'include/footer.html' %}
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

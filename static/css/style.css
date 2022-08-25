@@ -274,7 +274,7 @@ html {
     width: 380px;
     height: 532px;
     background: #FFFFFF;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     justify-content: center;
 }
@@ -291,12 +291,14 @@ html {
 }
 
 .novelties-title {
+    text-decoration: none;
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
     margin-top: 30px;
     margin-bottom: 10px;
     margin-left: 30px;
+    color: #000;
 }
 
 .novelties-price {
@@ -307,8 +309,8 @@ html {
 }
 
 .novelties-img {
-    width: 350px;
-    height: 400px;
+    height: 370px;
+    width: auto;
 }
 
 

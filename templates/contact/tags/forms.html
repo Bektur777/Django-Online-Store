@@ -1,0 +1,10 @@
+<style>
+    label {
+        font-size: 0;
+    }
+</style>
+<form action="{% url 'contact:contact' %}" class="form" method="post">
+    {% csrf_token %}
+    {{ contact_form  }}
+    <button type="submit" class="question-btn">Отправить</button>
+</form>

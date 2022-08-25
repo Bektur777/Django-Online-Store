@@ -25,13 +25,14 @@ class ProductFilter():
 
 class StoreView(ListView):
     model = Product
-    queryset = Product.objects.filter(draft=False)
+    queryset = Product.objects.filter(draft=False)[3:]
+    context_object_name = 'store'
     template_name = 'store/store.html'
 
 
 class ProductView(ProductFilter, ListView):
     model = Product
-    queryset = Product.objects.filter(draft=False)
+    queryset = Product.objects.filter(draft=False).order_by('-id')
     paginate_by = 3
 
 
@@ -59,6 +60,11 @@ class FilterProductView(ProductFilter, ListView):
         if 'year' in self.request.GET and 'manufacture' in self.request.GET:
             queryset = Product.objects.filter(
                 Q(year__in=self.request.GET.getlist("year")),
+                Q(manufacture__in=self.request.GET.getlist("manufacture"))
+            ).distinct()
+        if 'category' in self.request.GET and 'manufacture' in self.request.GET:
+            queryset = Product.objects.filter(
+                Q(category__in=self.request.GET.getlist("category")),
                 Q(manufacture__in=self.request.GET.getlist("manufacture"))
             ).distinct()
         else:

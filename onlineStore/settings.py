@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'store.apps.StoreConfig',
     'cart.apps.CartConfig',
     'order.apps.OrderConfig',
+    'contact',
 
     'ckeditor',
     'ckeditor_uploader',

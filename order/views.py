@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 
 from django.views.decorators.http import require_POST
 from .models import *
-from cart.views import delete_goods
 
 
 def make_order(request):
@@ -27,7 +26,7 @@ def order(request):
             product = Product.objects.get(pk=j)
             price = product.price
             item = OrderItem.objects.create(order=make_order, product=product, price=price, quantity=quantity)
-            del request.session['goods']
+    del request.session['goods']
 
     return redirect('order:get_orders')
 

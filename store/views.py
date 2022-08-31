@@ -62,9 +62,14 @@ class FilterProductView(ProductFilter, ListView):
                 Q(year__in=self.request.GET.getlist("year")),
                 Q(manufacture__in=self.request.GET.getlist("manufacture"))
             ).distinct()
-        if 'category' in self.request.GET and 'manufacture' in self.request.GET:
+        elif 'category' in self.request.GET and 'manufacture' in self.request.GET:
             queryset = Product.objects.filter(
                 Q(category__in=self.request.GET.getlist("category")),
+                Q(manufacture__in=self.request.GET.getlist("manufacture"))
+            ).distinct()
+        elif 'manufacture' in self.request.GET and 'memory' in self.request.GET:
+            queryset = Product.objects.filter(
+                Q(memory__in=self.request.GET.getlist("memory")),
                 Q(manufacture__in=self.request.GET.getlist("manufacture"))
             ).distinct()
         else:
